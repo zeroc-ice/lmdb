@@ -20,27 +20,40 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{F22D082B-B83C-4DE1-AB1E-E82006982C8C}</ProjectGuid>
+    <IntDir>$(Platform)\$(Configuration)</IntDir>
+    <OutDir>$(Platform)\$(Configuration)</OutDir>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.default.props" />
   <PropertyGroup Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
-    <TargetName Condition="'$(Configuration)'=='Debug'">lmdbD</TargetName>
+    <TargetName Condition="'$(Configuration)'=='Debug'">lmdbd</TargetName>
     <LinkIncremental>false</LinkIncremental>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>$(DefaultPlatformToolset)</PlatformToolset>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ItemDefinitionGroup>
     <ClCompile>
-      <PreprocessorDefinitions Condition="'$(Configuration)'=='Debug'">MDB_DEBUG</PreprocessorDefinitions>
-    </ClCompile>
-  </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="mdb.c;midl.c">
-      <Optimization Condition="'$(Configuration)'=='Debug'">Disabled</Optimization>
-      <RuntimeLibrary Condition="'$(Configuration)'=='Debug'">MultiThreadedDebugDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
       <AdditionalOptions>/wd4267 /wd4996</AdditionalOptions>
     </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)'=='Debug'">
+    <ClCompile>
+      <PreprocessorDefinitions>MDB_DEBUG</PreprocessorDefinitions>
+      <ProgramDataBaseFileName>$(IntDir)$(TargetName).pdb</ProgramDataBaseFileName>
+      <Optimization>Disabled</Optimization>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)'=='Release'">
+    <ClCompile>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <ProgramDataBaseFileName></ProgramDataBaseFileName>
+      <DebugInformationFormat>None</DebugInformationFormat>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="mdb.c;midl.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="lmdb.h;midl.h" />
