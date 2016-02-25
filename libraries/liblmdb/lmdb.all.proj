@@ -1,0 +1,32 @@
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+    <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+
+    <ItemGroup>
+      <Projects Include="lmdb.vcxproj">
+        <Properties>Configuration=Debug;Platform=Win32</Properties>
+      </Projects>
+      <Projects Include="lmdb.vcxproj">
+        <Properties>Configuration=Debug;Platform=x64</Properties>
+      </Projects>
+      <Projects Include="lmdb.vcxproj">
+        <Properties>Configuration=Release;Platform=Win32</Properties>
+      </Projects>
+      <Projects Include="lmdb.vcxproj">
+        <Properties>Configuration=Release;Platform=x64</Properties>
+      </Projects>
+    </ItemGroup>
+
+    <Target Name="Build">
+        <MSBuild Projects="@(Projects)"
+                 BuildInParallel="true"
+                 Properties="%(Properties)" />
+    </Target>
+
+    <Target Name="Clean">
+        <MSBuild Projects="@(Projects)"
+                 BuildInParallel="true"
+                 Properties="%(Properties)"
+                 Targets="Clean" />
+    </Target>
+</Project>
