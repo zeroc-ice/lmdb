@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>lmdb.v140</id>
+    <version>0.9.18.0</version>
+    <authors>Howard Chu</authors>
+    <owners>Howard Chu</owners>
+    <licenseUrl>https://github.com/zeroc-ice/lmdb/blob/msvc/libraries/liblmdb/LICENSE</licenseUrl>
+    <projectUrl>http://symas.com/mdb/</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>lmdb built as a static library. LMDB is an ultra-fast, ultra-compact key-value embedded data store developed by Symas for the OpenLDAP Project.</description>
+    <tags>lmdb native</tags>
+  </metadata>
+</package>
