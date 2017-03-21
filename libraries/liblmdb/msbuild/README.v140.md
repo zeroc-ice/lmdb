@@ -1,6 +1,6 @@
 # LMDB.V140
 
-This package contains debug and release builds of the lmdb 0.9.18 static library. It was built with Visual Studio 2015 (V140).
+This package contains debug and release builds of the lmdb 0.9.19 static library. It was built with Visual Studio 2015 (V140).
 
 ## Source
 

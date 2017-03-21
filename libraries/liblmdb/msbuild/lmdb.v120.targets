@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-    <PropertyGroup Condition="'$(PlatformToolset)' == 'v120' And '$(Configuration)' == 'Debug'">
-        <_LmdbLibSuffix>d</_LmdbLibSuffix>
+    <PropertyGroup Condition="'$(PlatformToolset)' == 'v120'">
+        <_LmdbLibSuffix Condition="'$(Configuration)' == 'Debug'">d</_LmdbLibSuffix>
+        <_LmdbConfiguration Condition="'$(UseDebugLibraries)' == 'yes'">Debug</_LmdbConfiguration>
+        <_LmdbConfiguration Condition="'$(UseDebugLibraries)' != 'yes'">Release</_LmdbConfiguration>
     </PropertyGroup>
     <ItemDefinitionGroup Condition="'$(PlatformToolset)' == 'v120'">
         <ClCompile>
@@ -9,7 +11,7 @@
         </ClCompile>
         <Link>
             <AdditionalDependencies>lmdb$(_LmdbLibSuffix).lib;%(AdditionalDependencies)</AdditionalDependencies>
-            <AdditionalLibraryDirectories>$(MSBuildThisFileDirectory)lib\$(Platform)\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+            <AdditionalLibraryDirectories>$(MSBuildThisFileDirectory)lib\$(Platform)\$(_LmdbConfiguration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
         </Link>
     </ItemDefinitionGroup>
 </Project>
