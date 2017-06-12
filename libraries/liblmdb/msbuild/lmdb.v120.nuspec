@@ -2,13 +2,12 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
     <id>lmdb.v120</id>
-    <version>0.9.19.2</version>
+    <version>0.9.19.3</version>
     <authors>Howard Chu</authors>
-    <owners>Howard Chu</owners>
-    <licenseUrl>https://github.com/zeroc-ice/lmdb/blob/msvc/libraries/liblmdb/LICENSE</licenseUrl>
+    <licenseUrl>https://raw.githubusercontent.com/zeroc-ice/lmdb/msvc/libraries/liblmdb/LICENSE</licenseUrl>
     <projectUrl>http://symas.com/mdb/</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>lmdb built as a static library. LMDB is an ultra-fast, ultra-compact key-value embedded data store developed by Symas for the OpenLDAP Project.</description>
-    <tags>lmdb native</tags>
+    <description>LMDB built as a static library with Visual Studio 2013 (v120). LMDB is an ultra-fast, ultra-compact key-value embedded data store developed by Symas for the OpenLDAP Project.</description>
+    <tags>lmdb native v120</tags>
   </metadata>
 </package>
