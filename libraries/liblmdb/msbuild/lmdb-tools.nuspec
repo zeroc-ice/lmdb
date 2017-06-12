@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>lmdb-tools</id>
+    <version>0.9.19</version>
+    <authors>Howard Chu</authors>
+    <owners>Howard Chu</owners>
+    <licenseUrl>https://github.com/zeroc-ice/lmdb/blob/msvc/libraries/liblmdb/LICENSE</licenseUrl>
+    <projectUrl>http://symas.com/mdb/</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>lmdb tools build with msys2.</description>
+    <tags>lmdb native</tags>
+  </metadata>
+</package>
