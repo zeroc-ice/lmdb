@@ -21,3 +21,12 @@ core.*
 valgrind.*
 man/
 html/
+
+msbuild/lmdb-tools
+msbuild/lmdb.v120
+msbuild/lmdb.v140
+msbuild/lmdb.v141
+
+msbuild/v120
+msbuild/v140
+msbuild/v141
