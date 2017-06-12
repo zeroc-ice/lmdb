@@ -88,4 +88,15 @@
                   WorkingDirectory="$(PackageDirectory)"/>
     </Target>
 
+    <Target Name="ToolsNugetPack">
+      <RemoveDir Directories="lmdb-tools" />
+      <Copy SourceFiles="$(MSBuildThisFileDirectory)..\mdb_copy.exe" DestinationFolder="lmdb-tools\tools" />
+      <Copy SourceFiles="$(MSBuildThisFileDirectory)..\mdb_load.exe" DestinationFolder="lmdb-tools\tools" />
+      <Copy SourceFiles="$(MSBuildThisFileDirectory)..\mdb_dump.exe" DestinationFolder="lmdb-tools\tools" />
+      <Copy SourceFiles="$(MSBuildThisFileDirectory)..\mdb_stat.exe" DestinationFolder="lmdb-tools\tools" />
+      <Copy SourceFiles="README.lmdb-tools.md" DestinationFiles="lmdb-tools\README.md" />
+      <Copy SourceFiles="lmdb-tools.nuspec" DestinationFolder="lmdb-tools" />
+      <Exec Command="$(MSBuildThisFileDirectory)nuget pack -NoPackageAnalysis -NonInteractive" WorkingDirectory="lmdb-tools"/>
+    </Target>
+
 </Project>
