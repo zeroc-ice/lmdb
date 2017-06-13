@@ -35,7 +35,7 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <AdditionalOptions>/wd4146 /wd4172  /wd4244 /wd4267 /wd4333 /wd4996</AdditionalOptions>
-      <ProgramDataBaseFileName>$(IntDir)$(TargetName)-objs.pdb</ProgramDataBaseFileName>
+      <ProgramDataBaseFileName>$(IntDir)$(TargetName).pdb</ProgramDataBaseFileName>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
     </ClCompile>
   </ItemDefinitionGroup>
