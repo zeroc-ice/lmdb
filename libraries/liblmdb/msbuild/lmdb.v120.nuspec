@@ -2,9 +2,9 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
     <id>lmdb.v120</id>
-    <version>0.9.19.3</version>
+    <version>0.9.23</version>
     <authors>Howard Chu</authors>
-    <licenseUrl>https://raw.githubusercontent.com/zeroc-ice/lmdb/msvc/libraries/liblmdb/LICENSE</licenseUrl>
+    <license type="expression">OLDAP-2.8</license>
     <projectUrl>http://symas.com/mdb/</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>LMDB built as a static library with Visual Studio 2013 (v120). LMDB is an ultra-fast, ultra-compact key-value embedded data store developed by Symas for the OpenLDAP Project.</description>

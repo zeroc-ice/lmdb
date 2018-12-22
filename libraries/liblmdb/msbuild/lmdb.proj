@@ -33,7 +33,7 @@
 
     <!-- Download nuget.exe if not present -->
     <Target Name="GetNuget" Condition="!Exists('$(MSBuildThisFileDirectory)nuget.exe')">
-        <DownloadFile Address="http://nuget.org/nuget.exe" FileName="$(MSBuildThisFileDirectory)nuget.exe" />
+        <DownloadFile Address="https://dist.nuget.org/win-x86-commandline/v4.9.2/nuget.exe" FileName="$(MSBuildThisFileDirectory)nuget.exe" />
     </Target>
 
     <ItemGroup>

@@ -1,6 +1,6 @@
 # LMDB-TOOLS
 
-This package contains the lmdb tools for lmdb 0.9.19, it was build with MSYS2 MinGW64 G++ 6.3.0.
+This package contains the lmdb tools for lmdb 0.9.23, it was build with MSYS2 MinGW64 G++ 6.3.0.
 
 ## Source
 

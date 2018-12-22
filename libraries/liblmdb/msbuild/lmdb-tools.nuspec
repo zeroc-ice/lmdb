@@ -2,9 +2,9 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
     <id>lmdb-tools</id>
-    <version>0.9.19.1</version>
+    <version>0.9.23</version>
     <authors>Howard Chu</authors>
-    <licenseUrl>https://raw.githubusercontent.com/zeroc-ice/lmdb/msvc/libraries/liblmdb/LICENSE</licenseUrl>
+    <license type="expression">OLDAP-2.8</license>
     <projectUrl>http://symas.com/mdb/</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>LMDB tools built with MinGW-w64.</description>
