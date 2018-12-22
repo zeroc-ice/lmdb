@@ -10,6 +10,13 @@
       <Platform>Win32</Platform>
     </PropertyGroup>
 
+    <PropertyGroup>
+        <TimeStampServer>http://timestamp.digicert.com</TimeStampServer>
+        <SignCommandSHA1>signtool sign /f "$(SIGN_CERTIFICATE)" /p $(SIGN_PASSWORD) /t $(TimeStampServer)</SignCommandSHA1>
+        <SignCommandSHA256>signtool sign /f "$(SIGN_CERTIFICATE)" /p $(SIGN_PASSWORD) /tr $(TimeStampServer) /td sha256 /fd sha256 /as</SignCommandSHA256>
+        <SignTarget>$(OutDir)$(TargetName)$(TargetExt)</SignTarget>
+    </PropertyGroup>
+
     <PropertyGroup Condition="'$(DefaultPlatformToolset)' == ''">
       <DefaultPlatformToolset>v100</DefaultPlatformToolset>
     </PropertyGroup>
@@ -51,6 +58,13 @@
       </Projects>
     </ItemGroup>
 
+    <ItemGroup>
+        <LMDBTools Include="mdb_copy.exe"/>
+        <LMDBTools Include="mdb_load.exe"/>
+        <LMDBTools Include="mdb_dump.exe"/>
+        <LMDBTools Include="mdb_stat.exe"/>
+    </ItemGroup>
+
     <Target Name="Build" DependsOnTargets="GetNuget">
         <MSBuild Projects="@(Projects)"
                  BuildInParallel="true"
@@ -80,6 +94,8 @@
                   DestinationFolder="$(PackageDirectory)\build\native\include" />
             <Copy SourceFiles="README.$(DefaultPlatformToolset).md"
                   DestinationFiles="$(PackageDirectory)\README.md" />
+            <Copy SourceFiles="$(MSBuildThisFileDirectory)..\LICENSE"
+                  DestinationFiles="$(PackageDirectory)\LICENSE.txt" />
             <Copy SourceFiles="lmdb.$(DefaultPlatformToolset).nuspec"
                   DestinationFolder="$(PackageDirectory)" />
             <Copy SourceFiles="lmdb.$(DefaultPlatformToolset).targets"
@@ -90,11 +106,11 @@
 
     <Target Name="ToolsNugetPack">
       <RemoveDir Directories="lmdb-tools" />
-      <Copy SourceFiles="$(MSBuildThisFileDirectory)..\mdb_copy.exe" DestinationFolder="lmdb-tools\tools" />
-      <Copy SourceFiles="$(MSBuildThisFileDirectory)..\mdb_load.exe" DestinationFolder="lmdb-tools\tools" />
-      <Copy SourceFiles="$(MSBuildThisFileDirectory)..\mdb_dump.exe" DestinationFolder="lmdb-tools\tools" />
-      <Copy SourceFiles="$(MSBuildThisFileDirectory)..\mdb_stat.exe" DestinationFolder="lmdb-tools\tools" />
+      <Copy SourceFiles="$(MSBuildThisFileDirectory)..\%(LMDBTools.Identity)" DestinationFolder="lmdb-tools\tools" />
+      <Exec Command="$(SignCommandSHA1) lmdb-tools\tools\%(LMDBTools.Identity)" EchoOff="yes" Condition="'$(SIGN_CERTIFICATE)' != ''"/>
+      <Exec Command="$(SignCommandSHA256) lmdb-tools\tools\%(LMDBTools.Identity)" EchoOff="yes" Condition="'$(SIGN_CERTIFICATE)' != ''"/>
       <Copy SourceFiles="README.lmdb-tools.md" DestinationFiles="lmdb-tools\README.md" />
+      <Copy SourceFiles="$(MSBuildThisFileDirectory)..\LICENSE" DestinationFiles="lmdb-tools\LICENSE.txt" />
       <Copy SourceFiles="lmdb-tools.nuspec" DestinationFolder="lmdb-tools" />
       <Exec Command="$(MSBuildThisFileDirectory)nuget pack -NoPackageAnalysis -NonInteractive" WorkingDirectory="lmdb-tools"/>
     </Target>

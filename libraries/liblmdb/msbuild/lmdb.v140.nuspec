@@ -4,7 +4,7 @@
     <id>lmdb.v140</id>
     <version>0.9.23</version>
     <authors>Howard Chu</authors>
-    <license type="expression">OLDAP-2.8</license>
+    <license type="file">LICENSE.txt</license>
     <projectUrl>http://symas.com/mdb/</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>LMDB built as a static library with Visual Studio 2015 (v140). LMDB is an ultra-fast, ultra-compact key-value embedded data store developed by Symas for the OpenLDAP Project.</description>
