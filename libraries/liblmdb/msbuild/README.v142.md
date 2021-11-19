@@ -1,6 +1,6 @@
-# LMDB.V141
+# LMDB.V142
 
-This package contains debug and release builds of the lmdb 0.9.24 static library. It was built with Visual Studio 2019 (V142).
+This package contains debug and release builds of the lmdb 0.9.29 static library. It was built with Visual Studio 2019 (V142).
 
 ## Source
 

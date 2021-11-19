@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
     <id>lmdb.v141</id>
-    <version>0.9.24</version>
+    <version>0.9.29</version>
     <authors>Howard Chu</authors>
     <license type="file">LICENSE.txt</license>
     <projectUrl>http://symas.com/mdb/</projectUrl>
