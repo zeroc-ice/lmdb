@@ -42,7 +42,7 @@
     </UsingTask>
 
     <!-- Download nuget.exe if not present -->
-    <Target Name="GetNuget" Condition="!Exists('$(MSBuildThisFileDirectory)nuget.exe')">
+    <Target Name="GetNuget" Condition="!Exists('$(NugetExe)')">
               <Exec Command="powershell -ExecutionPolicy ByPass -Command &quot;[System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12;(New-Object Net.WebClient).DownloadFile('$(NugetURL)', '$(NugetExe)')&quot;"/>
     </Target>
 
@@ -103,7 +103,7 @@
                   DestinationFolder="$(PackageDirectory)" />
             <Copy SourceFiles="lmdb.$(DefaultPlatformToolset).targets"
                   DestinationFolder="$(PackageDirectory)\build\native" />
-            <Exec Command="$(MSBuildThisFileDirectory)nuget pack -NoPackageAnalysis -NonInteractive"
+            <Exec Command="$(NuGetExe) pack -NoPackageAnalysis -NonInteractive"
                   WorkingDirectory="$(PackageDirectory)"/>
     </Target>
 
@@ -115,7 +115,7 @@
       <Copy SourceFiles="README.lmdb-tools.md" DestinationFiles="lmdb-tools\README.md" />
       <Copy SourceFiles="$(MSBuildThisFileDirectory)..\LICENSE" DestinationFiles="lmdb-tools\LICENSE.txt" />
       <Copy SourceFiles="lmdb-tools.nuspec" DestinationFolder="lmdb-tools" />
-      <Exec Command="$(MSBuildThisFileDirectory)nuget pack -NoPackageAnalysis -NonInteractive" WorkingDirectory="lmdb-tools"/>
+      <Exec Command="$(NuGetExe) pack -NoPackageAnalysis -NonInteractive" WorkingDirectory="lmdb-tools"/>
     </Target>
 
 </Project>
