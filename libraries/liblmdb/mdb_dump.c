@@ -1,6 +1,6 @@
 /* mdb_dump.c - memory-mapped database dump tool */
 /*
- * Copyright 2011-2018 Howard Chu, Symas Corp.
+ * Copyright 2011-2021 Howard Chu, Symas Corp.
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -68,6 +68,8 @@ static void text(MDB_val *v)
 	end = c + v->mv_size;
 	while (c < end) {
 		if (isprint(*c)) {
+			if (*c == '\\')
+				putchar('\\');
 			putchar(*c);
 		} else {
 			putchar('\\');
