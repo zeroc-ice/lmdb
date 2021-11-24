@@ -99,9 +99,9 @@
                   DestinationFiles="$(PackageDirectory)\README.md" />
             <Copy SourceFiles="$(MSBuildThisFileDirectory)..\LICENSE"
                   DestinationFiles="$(PackageDirectory)\LICENSE.txt" />
-            <Copy SourceFiles="lmdb.$(DefaultPlatformToolset).nuspec"
+            <Copy SourceFiles="zeroc.lmdb.$(DefaultPlatformToolset).nuspec"
                   DestinationFolder="$(PackageDirectory)" />
-            <Copy SourceFiles="lmdb.$(DefaultPlatformToolset).targets"
+            <Copy SourceFiles="zeroc.lmdb.$(DefaultPlatformToolset).targets"
                   DestinationFolder="$(PackageDirectory)\build\native" />
             <Exec Command="$(NuGetExe) pack -NoPackageAnalysis -NonInteractive"
                   WorkingDirectory="$(PackageDirectory)"/>
@@ -114,7 +114,7 @@
       <Exec Command="$(SignCommandSHA256) lmdb-tools\tools\%(LMDBTools.Identity)" EchoOff="yes" Condition="'$(SIGN_CERTIFICATE)' != ''"/>
       <Copy SourceFiles="README.lmdb-tools.md" DestinationFiles="lmdb-tools\README.md" />
       <Copy SourceFiles="$(MSBuildThisFileDirectory)..\LICENSE" DestinationFiles="lmdb-tools\LICENSE.txt" />
-      <Copy SourceFiles="lmdb-tools.nuspec" DestinationFolder="lmdb-tools" />
+      <Copy SourceFiles="zeroc.lmdb-tools.nuspec" DestinationFolder="lmdb-tools" />
       <Exec Command="$(NuGetExe) pack -NoPackageAnalysis -NonInteractive" WorkingDirectory="lmdb-tools"/>
     </Target>
 
