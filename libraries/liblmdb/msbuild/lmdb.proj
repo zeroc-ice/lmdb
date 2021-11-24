@@ -79,7 +79,7 @@
     </Target>
 
     <PropertyGroup>
-        <PackageDirectory>lmdb.$(DefaultPlatformToolset)</PackageDirectory>
+        <PackageDirectory>zeroc.lmdb.$(DefaultPlatformToolset)</PackageDirectory>
     </PropertyGroup>
 
     <Target Name="NugetPack"
@@ -108,14 +108,14 @@
     </Target>
 
     <Target Name="ToolsNugetPack">
-      <RemoveDir Directories="lmdb-tools" />
-      <Copy SourceFiles="$(MSBuildThisFileDirectory)..\%(LMDBTools.Identity)" DestinationFolder="lmdb-tools\tools" />
-      <Exec Command="$(SignCommandSHA1) lmdb-tools\tools\%(LMDBTools.Identity)" EchoOff="yes" Condition="'$(SIGN_CERTIFICATE)' != ''"/>
-      <Exec Command="$(SignCommandSHA256) lmdb-tools\tools\%(LMDBTools.Identity)" EchoOff="yes" Condition="'$(SIGN_CERTIFICATE)' != ''"/>
-      <Copy SourceFiles="README.lmdb-tools.md" DestinationFiles="lmdb-tools\README.md" />
-      <Copy SourceFiles="$(MSBuildThisFileDirectory)..\LICENSE" DestinationFiles="lmdb-tools\LICENSE.txt" />
-      <Copy SourceFiles="zeroc.lmdb-tools.nuspec" DestinationFolder="lmdb-tools" />
-      <Exec Command="$(NuGetExe) pack -NoPackageAnalysis -NonInteractive" WorkingDirectory="lmdb-tools"/>
+      <RemoveDir Directories="zeroc.lmdb-tools" />
+      <Copy SourceFiles="$(MSBuildThisFileDirectory)..\%(LMDBTools.Identity)" DestinationFolder="zeroc.lmdb-tools\tools" />
+      <Exec Command="$(SignCommandSHA1) zeroc.lmdb-tools\tools\%(LMDBTools.Identity)" EchoOff="yes" Condition="'$(SIGN_CERTIFICATE)' != ''"/>
+      <Exec Command="$(SignCommandSHA256) zeroc.lmdb-tools\tools\%(LMDBTools.Identity)" EchoOff="yes" Condition="'$(SIGN_CERTIFICATE)' != ''"/>
+      <Copy SourceFiles="README.lmdb-tools.md" DestinationFiles="zeroc.lmdb-tools\README.md" />
+      <Copy SourceFiles="$(MSBuildThisFileDirectory)..\LICENSE" DestinationFiles="zeroc.lmdb-tools\LICENSE.txt" />
+      <Copy SourceFiles="zeroc.lmdb-tools.nuspec" DestinationFolder="zeroc.lmdb-tools" />
+      <Exec Command="$(NuGetExe) pack -NoPackageAnalysis -NonInteractive" WorkingDirectory="zeroc.lmdb-tools"/>
     </Target>
 
 </Project>
