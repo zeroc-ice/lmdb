@@ -23,7 +23,7 @@ AR	= ar
 W	= -W -Wall -Wno-unused-parameter -Wbad-function-cast -Wuninitialized
 THREADS = -pthread
 OPT = -O2 -g
-CFLAGS	= $(THREADS) $(OPT) $(W) $(XCFLAGS)
+CFLAGS	= $(THREADS) $(OPT) $(W) $(XCFLAGS) -DMDB_USE_ROBUST=0
 LDLIBS	=
 SOLIBS	=
 SOEXT	= .so

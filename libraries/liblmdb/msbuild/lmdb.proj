@@ -15,7 +15,7 @@
         <NugetExe>$(MSBuildThisFileDirectory)NuGet-5.4.0.exe</NugetExe>
         <NugetURL>https://dist.nuget.org/win-x86-commandline/v5.4.0/nuget.exe</NugetURL>
         <TimeStampServer>http://timestamp.digicert.com</TimeStampServer>
-        <SignCommandSHA1>signtool sign /f "$(SIGN_CERTIFICATE)" /p $(SIGN_PASSWORD) /t $(TimeStampServer)</SignCommandSHA1>
+        <SignCommandSHA1>signtool sign /f "$(SIGN_CERTIFICATE)" /p $(SIGN_PASSWORD) /tr $(TimeStampServer) /td sha1 /fd sha1</SignCommandSHA1>
         <SignCommandSHA256>signtool sign /f "$(SIGN_CERTIFICATE)" /p $(SIGN_PASSWORD) /tr $(TimeStampServer) /td sha256 /fd sha256 /as</SignCommandSHA256>
         <SignTarget>$(OutDir)$(TargetName)$(TargetExt)</SignTarget>
     </PropertyGroup>
